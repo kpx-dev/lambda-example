@@ -9,11 +9,11 @@ Resources:
       CodeUri: .
       Handler: app.lambda_handler
       Runtime: python3.7
-      Events:
-        Type: S3
-        Properties:
-          Bucket: your-bucket-name-here # replace with your bucket name
-          Events: s3:ObjectCreated:*
+  #     Events:
+  #       Type: S3
+  #       Properties:
+  #         Bucket: your-bucket-name-here # replace with your bucket name
+  #         Events: s3:ObjectCreated:*
 
-  MyS3Bucket:
-    Type: AWS::S3::Bucket
+  # MyS3Bucket:
+  #   Type: AWS::S3::Bucket
