@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: SAM sample app to listen to new S3 files
+
+Resources:
+  SimpleS3ListenerFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: .
+      Handler: app.lambda_handler
+      Runtime: python3.7
+      Events:
+        Type: S3
+        Properties:
+          Bucket: your-bucket-name-here # replace with your bucket name
+          Events: s3:ObjectCreated:*
+
+  MyS3Bucket:
+    Type: AWS::S3::Bucket
