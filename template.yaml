@@ -9,6 +9,7 @@ Resources:
       CodeUri: .
       Handler: app.lambda_handler
       Runtime: python2.7
+      Policies: AmazonS3ReadOnlyAccess
       Events:
         DataUpload:
           Type: S3
