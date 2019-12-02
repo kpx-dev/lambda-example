@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: SAM sample app to create a simple REST api service
+
+Resources:
+  RESTAPIFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: .
+      Handler: rest-api.handler
+      Runtime: nodejs10.x
+      Events:
+        GetResource:
+          Type: Api
+          Properties:
+            Path: /
+            Method: get
+
+Outputs:
+  ApiURL:
+    Description: "API endpoint URL for Prod environment"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
