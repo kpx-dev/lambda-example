@@ -10,5 +10,3 @@ echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
 brew tap aws/tap
 brew install aws-sam-cli
 brew install httpie
-
-source ~/.bash_profile
