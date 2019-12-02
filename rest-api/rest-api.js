@@ -9,7 +9,7 @@ exports.handler = (event, context, callback) => {
     }
   };
 
-  // console.log(bad code);
+  // const payload = {};
 
   return callback(null, payload);
 };
