@@ -1,5 +1,5 @@
 # lambda-example
-Example SAM templates to deploy AWS Lambda used by various labs / workshop (chatbotworkshop.com, sagreenlab.com, containersworkshop.com)
+Example SAM templates to deploy AWS Lambda used by various labs / workshop (https://chatbotworkshop.com, https://sagreenlab.com, https://containersworkshop.com)
 
 ## Package
 
