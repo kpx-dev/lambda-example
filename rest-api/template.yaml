@@ -8,7 +8,7 @@ Resources:
     Properties:
       CodeUri: .
       Handler: rest-api.handler
-      Runtime: nodejs10.x
+      Runtime: nodejs12.x
       Events:
         GetResource:
           Type: Api
