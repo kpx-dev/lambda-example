@@ -1,14 +1,21 @@
 # lambda-example
 Example SAM templates to deploy AWS Lambda used by various labs / workshop (https://chatbotworkshop.com, https://sagreenlab.com, https://containersworkshop.com)
 
-## Package
-
+## Package REST API
 ```shell
-sam package --s3-bucket your-unique-S3-bucket-name --s3-prefix lab --output-template-file template_packaged.yaml
+# change into the rest-api service
+cd rest-api
 ```
 
-## Deploy
+```shell
+npm run package
+```
+
+## Deploy REST API
 
 ```shell
-sam deploy --template-file template_packaged.yaml --stack-name workshop-rest-api-lambda --capabilities CAPABILITY_IAM
+npm run deploy
 ```
+
+## Test Endpoint
+https://gv0w5i9u60.execute-api.us-east-1.amazonaws.com/Prod/

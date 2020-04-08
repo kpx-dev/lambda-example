@@ -1,6 +1,6 @@
 exports.handler = (event, context, callback) => {
 
-  const message = 'Hello re:Invent Builders!';
+  const message = 'Hello awesome Wedbush team!';
   const payload = {
     statusCode: 200,
     body: JSON.stringify(message),

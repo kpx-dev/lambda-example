@@ -1,0 +1,23 @@
+{
+  "name": "rest-api",
+  "version": "1.0.0",
+  "description": "sample REST API using Lambda / API Gateway",
+  "main": "rest-api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package": "sam package --output-template-file template_packaged.yaml --s3-bucket devops-chatbot-lambda-us-east-1 --s3-prefix rest-api",
+    "deploy": "sam deploy --template-file template_packaged.yaml --stack-name chatbot-workshop-rest-api-lambda --capabilities CAPABILITY_IAM",
+    "release": "npm run package && npm run deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/kienpham2000/lambda-example"
+  },
+  "keywords": [
+    "rest",
+    "api",
+    "lambda"
+  ],
+  "author": "Kien Pham",
+  "license": "MIT"
+}
