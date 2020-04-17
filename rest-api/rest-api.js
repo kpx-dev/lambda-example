@@ -1,6 +1,6 @@
 exports.handler = (event, context, callback) => {
 
-  const message = 'Hello awesome Wedbush team!';
+  const message = 'Hello awesome Guitar Team team from Lambda / API Gateway!';
   const payload = {
     statusCode: 200,
     body: JSON.stringify(message),
