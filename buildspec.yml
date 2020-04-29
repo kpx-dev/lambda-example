@@ -31,7 +31,8 @@ phases:
       # - command
   build:
     commands:
-      - sam package --template-file rest-api/template.yaml --s3-bucket $BUILD_S3_BUCKET --output-template-file template_packaged.yaml
+      - cd rest-api
+      - sam package --s3-bucket $BUILD_S3_BUCKET --output-template-file template_packaged.yaml
       # - sam deploy --stack-name $DEPLOY_STACK_NAME --s3-bucket $BUILD_S3_BUCKET --capabilities CAPABILITY_IAM --template template_packaged.yml
   #post_build:
     #commands:
@@ -51,7 +52,7 @@ artifacts:
     # - location
   #name: $(date +%Y-%m-%d)
   #discard-paths: yes
-  #base-directory: location
+  base-directory: rest-api
 #cache:
   #paths:
     # - pathscodebuild-build-docker-example-service-role
