@@ -1,3 +1,4 @@
+build/
 node_modules/
 *.out
 template_packaged.yaml

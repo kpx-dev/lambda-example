@@ -34,12 +34,12 @@ phases:
       - cd express-api
       - npm i
       - npm test
-      # - sam build
+      # - sam build --build-dir build
       # - sam package --s3-bucket $BUILD_S3_BUCKET --output-template-file template_packaged.yaml
       # - sam deploy --stack-name $DEPLOY_STACK_NAME --s3-bucket $BUILD_S3_BUCKET --capabilities CAPABILITY_IAM --template template_packaged.yml
-  #post_build:
-    #commands:
-      # - command
+  post_build:
+    commands:
+      - rm -rf express-api/test
       # - command
 #reports:
   #report-name-or-arn:
@@ -54,7 +54,7 @@ artifacts:
     - '**/*'
   #name: $(date +%Y-%m-%d)
   #discard-paths: yes
-  base-directory: rest-api
+  base-directory: express-api
 #cache:
   #paths:
     # - pathscodebuild-build-docker-example-service-role
