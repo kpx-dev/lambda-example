@@ -31,8 +31,11 @@ phases:
       # - command
   build:
     commands:
-      - cd rest-api
-      - sam package --s3-bucket $BUILD_S3_BUCKET --output-template-file template_packaged.yaml
+      - cd express-api
+      - npm i
+      - npm test
+      # - sam build
+      # - sam package --s3-bucket $BUILD_S3_BUCKET --output-template-file template_packaged.yaml
       # - sam deploy --stack-name $DEPLOY_STACK_NAME --s3-bucket $BUILD_S3_BUCKET --capabilities CAPABILITY_IAM --template template_packaged.yml
   #post_build:
     #commands:
@@ -48,8 +51,7 @@ phases:
     #file-format: JunitXml | CucumberJson
 artifacts:
   files:
-    - template_packaged.yaml
-    # - location
+    - '**/*'
   #name: $(date +%Y-%m-%d)
   #discard-paths: yes
   base-directory: rest-api

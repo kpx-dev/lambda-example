@@ -3,11 +3,11 @@ Transform: AWS::Serverless-2016-10-31
 Description: REST API service using SAM Lambda
 
 Resources:
-  RESTAPIFunction:
+  SimpleAPIFunction:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: .
-      Handler: rest-api.handler
+      Handler: simple-api.handler
       Runtime: nodejs12.x
       Events:
         GetResource:
@@ -15,8 +15,7 @@ Resources:
           Properties:
             Path: /
             Method: get
-
 Outputs:
-  ApiURL:
+  APIURL:
     Description: "API endpoint URL for Prod environment"
     Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"

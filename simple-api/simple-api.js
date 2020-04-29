@@ -1,6 +1,6 @@
 exports.handler = (event, context, callback) => {
 
-  const message = 'Hello from Lambda / API Gateway!';
+  const message = 'lambda-simple: Hello from Lambda / API Gateway!';
   const payload = {
     statusCode: 200,
     body: JSON.stringify(message),
@@ -8,8 +8,6 @@ exports.handler = (event, context, callback) => {
       'Content-Type': 'application/json',
     }
   };
-
-  // const payload = {};
 
   return callback(null, payload);
 };

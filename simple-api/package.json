@@ -1,10 +1,10 @@
 {
-  "name": "rest-api",
+  "name": "simple-api",
   "version": "1.0.0",
-  "description": "sample REST API using Lambda / API Gateway",
-  "main": "rest-api.js",
+  "description": "Simple REST API using Lambda / API Gateway",
+  "main": "simple-api.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "package": "sam package --output-template-file template_packaged.yaml --s3-bucket devops-chatbot-lambda-us-east-1 --s3-prefix rest-api",
     "deploy": "sam deploy --template-file template_packaged.yaml --stack-name chatbot-workshop-rest-api-lambda --capabilities CAPABILITY_IAM",
     "release": "npm run package && npm run deploy"
@@ -19,5 +19,16 @@
     "lambda"
   ],
   "author": "Kien Pham",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.665.0",
+    "aws-serverless-express": "^3.3.8",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "mocha": "^7.1.2"
+  }
 }
