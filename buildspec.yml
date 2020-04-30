@@ -1,45 +1,21 @@
 version: 0.2
 
-#env:
-  #variables:
-     # key: "value"
-     # key: "value"
-  #parameter-store:
-     # key: "value"
-     # key: "value"
-  #secrets-manager:
-     # key: secret-id:json-key:version-stage:version-id
-     # key: secret-id:json-key:version-stage:version-id
-  #exported-variables:
-     # - variable
-     # - variable
-  #git-credential-helper: yes
-
 phases:
-  #install:
-    #If you use the Ubuntu standard image 2.0 or later, you must specify runtime-versions.
-    #If you specify runtime-versions and use an image other than Ubuntu standard image 2.0, the build fails.
-    #runtime-versions:
-      # name: version
-      # name: version
-    #commands:
-      # - command
-      # - command
-  #pre_build:
-    #commands:
-      # - command
-      # - command
-  build:
+  install:
     commands:
       - cd express-api
       - npm i
+  #pre_build:
+    #commands:
+      # - command
+  build:
+    commands:
       - npm test
-      # - sam build --build-dir build
-      # - sam package --s3-bucket $BUILD_S3_BUCKET --output-template-file template_packaged.yaml
-      # - sam deploy --stack-name $DEPLOY_STACK_NAME --s3-bucket $BUILD_S3_BUCKET --capabilities CAPABILITY_IAM --template template_packaged.yml
+      - rm -rf express-api/test
+      - sam package --s3-bucket $BUILD_S3_BUCKET --output-template-file template_packaged.yaml
   post_build:
     commands:
-      - rm -rf express-api/test
+      - sam deploy --stack-name $DEPLOY_STACK_NAME --s3-bucket $BUILD_S3_BUCKET --capabilities CAPABILITY_IAM --template template_packaged.yml
       # - command
 #reports:
   #report-name-or-arn:
