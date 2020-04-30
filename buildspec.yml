@@ -12,10 +12,10 @@ phases:
     commands:
       - npm test
       - rm -rf express-api/test
-      - sam package --s3-bucket $BUILD_S3_BUCKET --output-template-file template_packaged.yaml
+      - sam package --s3-bucket $BUILD_S3_BUCKET --s3-prefix express-api --output-template-file template_packaged.yaml
   post_build:
     commands:
-      - sam deploy --stack-name $DEPLOY_STACK_NAME --s3-bucket $BUILD_S3_BUCKET --capabilities CAPABILITY_IAM --template template_packaged.yml
+      - sam deploy --stack-name $DEPLOY_STACK_NAME --s3-bucket $BUILD_S3_BUCKET --capabilities CAPABILITY_IAM --template template_packaged.yaml
       # - command
 #reports:
   #report-name-or-arn:
