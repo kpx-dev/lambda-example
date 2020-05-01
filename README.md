@@ -5,8 +5,8 @@ Example SAM templates to deploy AWS Lambda used by various labs / workshop (http
 
 ## Package REST API
 ```shell
-# change into the rest-api service
-cd rest-api
+# change into the express-api service
+cd express-api
 ```
 
 ```shell
